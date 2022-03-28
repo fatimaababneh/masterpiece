@@ -4,7 +4,7 @@ import "./navbar.css";
 
 function Header(props) {
   const [showNav, setShowNav] = useState(false);
-
+  const [currentuser, setCurrentuser]=useState(localStorage.getItem("loggeduser")?JSON.parse(localStorage.getItem("loggeduser")):[]);
   return (
     <nav className="navbar">
       <div className="logo-nav">
@@ -50,27 +50,30 @@ function Header(props) {
       <div className="register-btn">
         <ul id={showNav ? "hiddenbtn" : null}>
           <li>
-            {!props.logged && (
+            {!currentuser.email && (
               <Link to="/login">
                 <button  className="login-btn-header">Login</button>
               </Link>
             )}
           </li>
+
           <li>
-            {props.logged ? (
+            {currentuser.email && (
               <Link to="/login">
                 <button
                   className="logout-btn-header"
                   onClick={() => {
-                    localStorage.removeItem("loggedUser");
-                    props.setLogged(localStorage.getItem("loggedUser"));
+                    localStorage.removeItem("loggeduser");
+                    localStorage.removeItem("cartitems");
+                    setCurrentuser([])
                   }}
                 >
                   Logout
                 </button>
               </Link>
-            ) : null}
+            ) }
           </li>
+
           <li>
             {!props.logged && (
               <Link to="/signup">

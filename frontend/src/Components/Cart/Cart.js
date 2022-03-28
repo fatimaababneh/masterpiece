@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 import './Cart.css'
 function Cart() {
         const [cartproduct , setCartproduct]= useState(localStorage.getItem("cartitems")?JSON.parse(localStorage.getItem("cartitems")):[]);
-        const [itemprice , setItemprice]=useState();
+        
+        const [user, setUser]=useState(localStorage.getItem("loggeduser")?JSON.parse(localStorage.getItem("loggeduser")):[])
         let i=0;
         const additem=(product)=>{
             for(i;i<cartproduct.length;i++){
@@ -62,8 +63,9 @@ function Cart() {
                 </div>)
                })
            } 
-           <Link to="/cards"><button className='cart-btn'>add items</button></Link> <h1>Total:${cartproduct.reduce((total,item) => total + item.quantity * item.price, 0)}</h1>
-           <Link to="/checkout"><button className='cart-btn'>checkout all items</button></Link>
+           <Link to="/cards"><button className='cart-btn'>add items</button></Link> 
+           <h1>Total:${cartproduct.reduce((total,item) => total + item.quantity * item.price, 0)}</h1>
+            <Link to={user.email != '' ? '/checkout' : '/login'} > {cartproduct!=0 && <button className='cart-btn'>checkout all items</button>}</Link>
             </div>
         </div>
     )

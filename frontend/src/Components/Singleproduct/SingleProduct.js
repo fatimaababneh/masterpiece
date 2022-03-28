@@ -13,6 +13,7 @@ function SingleProduct(){
         axios.get(`http://127.0.0.1:8000/api/prod/${id}`)
         .then(response=>{
             setProducts(response.data.products);
+            
             console.log(response.data.products);
             
         });
@@ -36,8 +37,8 @@ function SingleProduct(){
             }
         }
 return( <div>{products &&
-    <div class="container-fluid mt-5">
-    <div class="row">
+    <div className="container-fluid mt-5">
+    <div className="row">
         <div class="col-md-5 mr-1" style={{marginRight:"4%",marginLeft:"4%"}}>
             
         
@@ -75,11 +76,8 @@ src={products.image4}
         </Carousel.Item>
       </Carousel>
       </div>
-          <div class="col-md-6">
-
-          
-            
-           
+          <div className="col-md-6">
+ 
                 {/* <div >
                     <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
                     <div class="carousel-item"><img class="img-thumbnail w-100 d-block" src={products.image2} alt="Slide Image"/></div>  
@@ -92,11 +90,12 @@ src={products.image4}
 
                 
 
-        <div class="col-md-12">
+        <div class="col-md-12 container1">
             <h4>{products.name}</h4>
             <div class="price"><span class="mr-2 cut">65,000</span><span class="text-success">25% OFF</span></div>
             <div class="d-flex flex-row">
-                <div class="icons mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>1200 ratings &amp; 564 reviews</span>
+                <div class="icons mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                {/* <span>1200 ratings &amp; 564 reviews</span> */}
             </div>
             <div class="d-flex align-items-center mt-4 offers mb-1"><span class="ml-2 font-weight-bold">{products.description}</span></div>
             <div class="d-flex align-items-center mt-5 delivery"><i class="fa fa-map-marker"></i><span class="ml-2">Delivery by 23 Jul, Tuesday<br/></span><span class="ml-2 mr-2">|<br/></span><span class="ml-2 mr-2 text-success">FREE<br/></span></div>
@@ -106,9 +105,17 @@ src={products.image4}
             <h4>{products.price}$</h4><button className='card-btn' onClick={()=>addtocart(products)}><b>+ Add to Cart</b></button>
         </div>
         </div>
-           
+
+    
+
             </div>
-            
+                   /*comments */
+           <div className="container-comment">
+                  <div className="pro-comment">
+                    <label></label>
+                    <input></input>
+                  </div>
+           </div>
             </div>
 }
 </div>);

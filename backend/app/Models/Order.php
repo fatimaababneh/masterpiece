@@ -9,9 +9,10 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $fillables = [
-        'customer_name',
-        'customer_num',
+        'full_name',
+        'phone_number',
         'address',
+        'user_id',
         'city',
         'note',
         'total_price',

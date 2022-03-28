@@ -14,7 +14,7 @@ h2{
     align-items: center;
 }
 .card-btn{
-background-color: #1976d2;
+background-color: rgb(207, 57, 57);;
 border: 0px;
 padding: .6em;
 color: white;
@@ -81,6 +81,7 @@ border:1px solid rgb(255, 255, 255);
        
     }
 }
+
 * {
     box-sizing: border-box
 }

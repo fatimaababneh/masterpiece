@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
-function Login() {
+function Login({setCurrentUser}) {
 const navigate=useNavigate();
     const [password , setpassword] =useState(0);
     const [user, setUser] =useState('');
@@ -22,7 +22,7 @@ const navigate=useNavigate();
         console.log(response.data)
     });
        if(user ){
-            user['cart']=[];
+            user['cart']=localStorage.getItem("cartitems")?JSON.parse(localStorage.getItem("cartitems")):[];
             user['orders']=[];
             localStorage.setItem("loggeduser",JSON.stringify(user));
             if(user.role_as==0)
@@ -31,8 +31,7 @@ const navigate=useNavigate();
         }
        if(typeof(user)=="string"){
         setError('Your email or password incorrect');
-       }
-       
+       }       
     }
     return (
         <div className='container1'>

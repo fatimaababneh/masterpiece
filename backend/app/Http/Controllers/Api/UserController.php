@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,11 +39,10 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $password,
-            // 'mobile_number' => $request->mobile_number
         ]);
-        $returnedUser = User::where('email', $user->email)->firstOrFail();
 
-        return $returnedUser;
+        $returnedUser = User::where('email', $user->email)->firstOrFail();
+        return "user added succesfully";
     }
     public function index()
     {

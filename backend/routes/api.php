@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\UserProductController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\api\CheckoutController;
+use App\Http\Controllers\Users\OrderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +22,5 @@ Auth::routes();
 Route::get('prod/', [UserProductController::class, 'index']);
 Route::get('prod/{id}', [UserProductController::class, 'single']);
 Route::post('log/', [UserController::class, 'login']);
+Route::post('reg/', [UserController::class, 'register']);
+Route::post('check', [CheckoutController::class, 'create']);

@@ -1,4 +1,4 @@
-import React,{useEffect, useState, useRef} from 'react'
+import React,{useEffect, useState, useRef , Link} from 'react'
 import Hero from '../Components/Hero/Heroimg';
 import Welcome from '../Components/Welcome/Welcome';
 import Footer from '../Components/Footer/Footer';
@@ -32,13 +32,13 @@ function Home() {
     return (
         <div>
             <Hero/>
-            <Welcome/>
+            {/* <Welcome/>
             <form onSubmit={(e)=>{showpost(e)}}>
             <input type="text" name="post"></input>
            <button type='submit'>post number</button>
-            </form>
+            </form> */}
             
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }

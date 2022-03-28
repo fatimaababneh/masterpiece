@@ -7,7 +7,6 @@ import { Card, CardColumns, Button } from "react-bootstrap";
 function Cards() {
     const [item ,setItem] =useState(0);
     const [products,setProducts] = useState();
-    const [images,setImages] = useState();
     useEffect(()=>{
         axios.get('http://127.0.0.1:8000/api/prod/')
         .then(response=>{
@@ -16,6 +15,7 @@ function Cards() {
             
         });
     },[]);
+    localStorage.setItem("products",JSON.stringify(products));
         const addtocart=(product,image)=>{
             let i=0;
             let flag = false;
